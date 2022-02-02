@@ -1,0 +1,26 @@
+Part 1:
+1. What is this code about?
+This code is about the management of the quality of products. Every item has two attributes sellIn and quality and at the end of the day, the value of those attributes are updated. There are specific items which have unique characteristics on how to calculate their quality which will introduce a lot of conditions to check on items.
+
+2. Can you clearly identify the name of all the goods stored in the Guilded Rose?
+Aged Brie, Sulfuras, Backstage passes, Elixir of the Mongoose, +5 Dexterity Vest, Conjured Mana Cake
+
+3. What happens when the day is over?
+It depends on the items, but normally the values of quality and sellIn of the items decrease. There are some items that increase their quality at the end of a day like cheese or concert ticker, and others that don't change like legendary items. 
+
+4. What happens to cheese when the day is over?
+The quality of cheese increase in function of the time when the day is over. It will rise to a maximum of 50 whenever the expiration day is over or before.
+
+5. What happens when a concert ticket goes over its expiration day?
+The quality of concert ticket increase in function of the time, but at its expiration date, its quality is 0.
+
+6. What makes this code hard to read?
+The number of conditions if..else make this code hard to read and complex to understand. The items with specific characteristics are identifed by their names where it is maybe better to create categories of those items to differentiate them
+
+7. Do you think the rules are clear enough so that you could rework the entire solution from scratch?
+I think that the rules are complicated, but clear enough that it could be possible to rework this solution. We have some primordial rules to respect and we can construct a new model around them to improve the systems.
+
+Part 4:
+We can add categories to add varieties on items as long as they respect the base rules of non negative quality and maximum of 50. We just have to add a class with the name of the category, then adapt the method update quality in order to respect the varieties of items in this category.
+We can add a parameter of price calculate with parameters sellin and quality. For instance, price = 0,7*quality + 0,3*sellin. But we need to adapt this formula for legendary items maybe price = quality. This parameter will be added among quality and sellIn on Item class.
+We can add a parameter of location climate. If the climate is warm or cold instead of mild the sellIn parameters decrease each day by 2. This parameter will be added among quality and sellIn on Item class because this parameter doesn't depend on the category of each item.
