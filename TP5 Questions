@@ -15,7 +15,7 @@ The quality of cheese increase in function of the time when the day is over. It 
 The quality of concert ticket increase in function of the time, but at its expiration date, its quality is 0.
 
 6. What makes this code hard to read?
-The number of conditions if..else make this code hard to read and complex to understand. The items with specific characteristics are identifed by their names where it is maybe better to create categories of those items to differentiate them
+The number of conditions if...else make this code hard to read and complex to understand. The items with specific characteristics are identifed by their names where it is maybe better to create categories of those items to differentiate them
 
 7. Do you think the rules are clear enough so that you could rework the entire solution from scratch?
 I think that the rules are complicated, but clear enough that it could be possible to rework this solution. We have some primordial rules to respect and we can construct a new model around them to improve the systems.
