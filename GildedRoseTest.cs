@@ -15,7 +15,7 @@ namespace csharp
             Assert.AreEqual("foo", Items[0].Name);
         }
         [Test]
-        public void TestCheese()
+        public void QualityCheeseBeforeExpiration()
         {
             IList<Item> ExpectedItems = new List<Item> { new Cheese { Name = "Aged Brie", SellIn = 1, Quality = 6 } };
 
@@ -26,7 +26,7 @@ namespace csharp
             Assert.AreEqual(Items[0].Quality, ExpectedItems[0].Quality);
         }
         [Test]
-        public void TestCheeseOver()
+        public void QualityCheeseAfterExpiration()
         {
             IList<Item> ExpectedItems = new List<Item> { new Cheese { Name = "Aged Bried", SellIn = -1, Quality = 6 } };
 
@@ -38,7 +38,7 @@ namespace csharp
         }
 
         [Test]
-        public void TestCheeseMax()
+        public void QualityMax50()
         {
             IList<Item> ExpectedItems = new List<Item> { new Cheese { Name = "Aged Brie", SellIn = 1, Quality = 50 } };
 
@@ -50,7 +50,7 @@ namespace csharp
             Assert.AreEqual(Items[0].Quality, ExpectedItems[0].Quality);
         }
         [Test]
-        public void TestConcert5d()
+        public void QualityConcert5d()
         {
             IList<Item> ExpectedItems = new List<Item> { new Concert { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 1, Quality = 8 } };
 
@@ -61,7 +61,7 @@ namespace csharp
             Assert.AreEqual(Items[0].Quality, ExpectedItems[0].Quality);
         }
         [Test]
-        public void TestConcert10d()
+        public void QualityConcert10d()
         {
             IList<Item> ExpectedItems = new List<Item> { new Concert { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 8, Quality = 7 } };
 
@@ -72,7 +72,7 @@ namespace csharp
             Assert.AreEqual(Items[0].Quality, ExpectedItems[0].Quality);
         }
         [Test]
-        public void TestConcert7d()
+        public void QualityConcert7d()
         {
             IList<Item> ExpectedItems = new List<Item> { new Concert { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 4, Quality = 13 } };
 
@@ -85,7 +85,7 @@ namespace csharp
             Assert.AreEqual(Items[0].SellIn, ExpectedItems[0].SellIn);
         }
         [Test]
-        public void TestConcertOver()
+        public void QualityNullConcertExpiration()
         {
             IList<Item> ExpectedItems = new List<Item> { new Concert { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = -1, Quality = 0 } };
 
@@ -96,7 +96,7 @@ namespace csharp
             Assert.AreEqual(Items[0].Quality, ExpectedItems[0].Quality);
         }
         [Test]
-        public void TestSulfuras()
+        public void QualityConstLegendary()
         {
             IList<Item> ExpectedItems = new List<Item> { new Legendary { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 5 } };
 
@@ -107,7 +107,7 @@ namespace csharp
             Assert.AreEqual(Items[0].Quality, ExpectedItems[0].Quality);
         }
         [Test]
-        public void TestSulfurasExpiration()
+        public void NoExpirationLegendary()
         {
             IList<Item> ExpectedItems = new List<Item> { new Legendary { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 5 } };
 
@@ -118,7 +118,7 @@ namespace csharp
             Assert.AreEqual(Items[0].SellIn, ExpectedItems[0].SellIn);
         }
         [Test]
-        public void TestCommunOver()
+        public void QualityDecreaseExpiration()
         {
             IList<Item> ExpectedItems = new List<Item> { new Commun { Name = "Elixir of the Mongoose", SellIn = -1, Quality = 3 } };
 
@@ -129,7 +129,7 @@ namespace csharp
             Assert.AreEqual(Items[0].Quality, ExpectedItems[0].Quality);
         }
         [Test]
-        public void TestCommunNegative()
+        public void QualityNonNegative()
         {
             IList<Item> ExpectedItems = new List<Item> { new Commun { Name = "Elixir of the Mongoose", SellIn = -1, Quality = 0 } };
 

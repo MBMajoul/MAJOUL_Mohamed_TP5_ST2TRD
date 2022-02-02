@@ -96,13 +96,10 @@ namespace csharp
                         }
                         break;
                 }
-                
-                if (Items[i].Quality < 0)
-                {
+                if (Items[i].Quality < 0) {
                     Items[i].Quality = 0;
                 }
-                if (Items[i].Quality >= 50)
-                {
+                if (Items[i].Quality >= 50) {
                     Items[i].Quality = 50;
                 }
             }
