@@ -28,7 +28,7 @@ namespace csharp
         [Test]
         public void TestCheeseOver()
         {
-            IList<Item> ExpectedItems = new List<Item> { new Item { Name = "Aged Bried", SellIn = 0, Quality = 3 } };
+            IList<Item> ExpectedItems = new List<Item> { new Item { Name = "Aged Bried", SellIn = -1, Quality = 6 } };
 
             IList<Item> Items = new List<Item> { new Item { Name = "Aged Bried", SellIn = 0, Quality = 5 } };
             GildedRose app = new GildedRose(Items);
@@ -59,7 +59,8 @@ namespace csharp
             app.UpdateQuality();
 
             Assert.AreEqual(Items[0].Quality, ExpectedItems[0].Quality);
-        }[Test]
+        }
+        [Test]
         public void TestConcert10d()
         {
             IList<Item> ExpectedItems = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 8, Quality = 7 } };
@@ -71,9 +72,22 @@ namespace csharp
             Assert.AreEqual(Items[0].Quality, ExpectedItems[0].Quality);
         }
         [Test]
+        public void TestConcert7d()
+        {
+            IList<Item> ExpectedItems = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 4, Quality = 12 } };
+
+            IList<Item> Items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 7, Quality = 5 } };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            app.UpdateQuality();
+            app.UpdateQuality();
+
+            Assert.AreEqual(Items[0].Quality, ExpectedItems[0].Quality);
+        }
+        [Test]
         public void TestConcertOver()
         {
-            IList<Item> ExpectedItems = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 0 } };
+            IList<Item> ExpectedItems = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = -1, Quality = 0 } };
 
             IList<Item> Items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 5 } };
             GildedRose app = new GildedRose(Items);
@@ -93,9 +107,20 @@ namespace csharp
             Assert.AreEqual(Items[0].Quality, ExpectedItems[0].Quality);
         }
         [Test]
+        public void TestSulfurasExpiration()
+        {
+            IList<Item> ExpectedItems = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 5 } };
+
+            IList<Item> Items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 5, Quality = 5 } };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+
+            Assert.AreEqual(Items[0].SellIn, ExpectedItems[0].SellIn);
+        }
+        [Test]
         public void TestCommunOver()
         {
-            IList<Item> ExpectedItems = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 0, Quality = 3 } };
+            IList<Item> ExpectedItems = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = -1, Quality = 3 } };
 
             IList<Item> Items = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 0, Quality = 5 } };
             GildedRose app = new GildedRose(Items);
@@ -106,7 +131,7 @@ namespace csharp
         [Test]
         public void TestCommunNegative()
         {
-            IList<Item> ExpectedItems = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 0, Quality = 0 } };
+            IList<Item> ExpectedItems = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = -1, Quality = 0 } };
 
             IList<Item> Items = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 1, Quality = 1 } };
             GildedRose app = new GildedRose(Items);
